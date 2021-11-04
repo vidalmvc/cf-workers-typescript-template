@@ -1,10 +1,11 @@
 settings:
-  title: 'Service Status Page'
-  url: 'https://service-status.vidal.life' # used for Slack messages
+  title: 'Status Page'
+  url: 'https://status-page.eidam.dev' # used for Slack & Discord messages
   logo: logo-192x192.png # image in ./public/ folder
   daysInHistogram: 90 # number of days you want to display in histogram
-  collectResponseTimes: true # collects avg response times from CRON locations
+  collectResponseTimes: false # experimental feature, enable only for <5 monitors or on paid plans
 
+  # configurable texts across the status page
   allmonitorsOperational: 'All Systems Operational'
   notAllmonitorsOperational: 'Not All Systems Operational'
   monitorLabelOperational: 'Operational'
@@ -12,23 +13,16 @@ settings:
   monitorLabelNoData: 'No data'
   dayInHistogramNoData: 'No data'
   dayInHistogramOperational: 'All good'
-  dayInHistogramNotOperational: ' incident(s)' # xx incident(s) recorded
+  dayInHistogramNotOperational: 'Some checks failed'
 
+# list of monitors
 monitors:
-
   - id: workers-cloudflare-com # unique identifier
     name: workers.cloudflare.com
-    description: 'You write code. They handle the rest.'
-    url: 'https://workers.cloudflare.com/'
-    method: GET 
-    expectStatus: 200 
-    followRedirect: false
-    linkable: false
+    description: 'You write code. They handle the rest.' # default=empty
+    url: 'https://workers.cloudflare.com/' # URL to fetch
+    method: GET # default=GET
+    expectStatus: 200 # operational status, default=200
+    followRedirect: false # should fetch follow redirects, default=false
+    linkable: false # should the titles be links to the service, default=true
 
-  - id: www-portalcomb-cat
-    name: PortalCoMB
-    description: 'Portal CoMB.'
-    url: 'https://www.portalcomb.cat'
-    method: GET
-    expectStatus: 200
-    linkable: true
