@@ -15,6 +15,7 @@ settings:
   dayInHistogramNotOperational: ' incident(s)' # xx incident(s) recorded
 
 monitors:
+
   - id: workers-cloudflare-com # unique identifier
     name: workers.cloudflare.com
     description: 'You write code. They handle the rest.' # default=empty
@@ -39,25 +40,25 @@ monitors:
     expectStatus: 200
     linkable: true # allows the title to be a link, default=true
 
-   - id: raplus-firmapro-com
+  - id: raplus-firmapro-com
     name: RA FirmaProfesional
     url: 'https://blog.cloudflare.com/'
     method: GET
     
-    - id: kraken
+  - id: kraken
     name: Casa
     url: 'https://kraken.vidal.life'
     method: GET
     linkable: true # allows the title to be a link, default=true
     
-   - id: casandra
+  - id: casandra
     name: Casandra
     url: 'https://casandra.vidal.life/'
     method: GET
     expectStatus: 200
     linkable: true # allows the title to be a link, default=true
  
-   - id: gecip
+  - id: gecip
     name: GM Corsega
     url: 'https://visita.gmcorsega.com'
     method: GET
