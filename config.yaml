@@ -1,0 +1,65 @@
+settings:
+  title: 'Service Status Page'
+  url: 'https://service-status.vidal.life' # used for Slack messages
+  logo: logo-192x192.png # image in ./public/ folder
+  daysInHistogram: 90 # number of days you want to display in histogram
+  collectResponseTimes: true # collects avg response times from CRON locations
+
+  allmonitorsOperational: 'All Systems Operational'
+  notAllmonitorsOperational: 'Not All Systems Operational'
+  monitorLabelOperational: 'Operational'
+  monitorLabelNotOperational: 'Not Operational'
+  monitorLabelNoData: 'No data'
+  dayInHistogramNoData: 'No data'
+  dayInHistogramOperational: 'All good'
+  dayInHistogramNotOperational: ' incident(s)' # xx incident(s) recorded
+
+monitors:
+  - id: workers-cloudflare-com # unique identifier
+    name: workers.cloudflare.com
+    description: 'You write code. They handle the rest.' # default=empty
+    url: 'https://workers.cloudflare.com/' # URL to fetch
+    method: GET # default=GET
+    expectStatus: 200 # operational status, default=200
+    followRedirect: false # should fetch follow redirects, default=false
+    linkable: false # allows the title to be a link, default=true
+
+  - id: www-portalcomb-cat
+    name: PortalCoMB
+    description: 'Portal CoMB.'
+    url: 'https://www.portalcomb.cat'
+    method: GET
+    expectStatus: 200
+    linkable: true # allows the title to be a link, default=true
+
+  - id: www-comb-cat
+    name: Web CoMB
+    url: 'https://www.comb.cat'
+    method: GET
+    expectStatus: 200
+    linkable: true # allows the title to be a link, default=true
+
+   - id: raplus-firmapro-com
+    name: RA FirmaProfesional
+    url: 'https://blog.cloudflare.com/'
+    method: GET
+    
+    - id: kraken
+    name: Casa
+    url: 'https://kraken.vidal.life'
+    method: GET
+    linkable: true # allows the title to be a link, default=true
+    
+   - id: casandra
+    name: Casandra
+    url: 'https://casandra.vidal.life/'
+    method: GET
+    expectStatus: 200
+    linkable: true # allows the title to be a link, default=true
+ 
+   - id: gecip
+    name: GM Corsega
+    url: 'https://visita.gmcorsega.com'
+    method: GET
+    expectStatus: 200
+    linkable: true # allows the title to be a link, default=true
